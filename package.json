@@ -6,12 +6,12 @@
     "mongoose": "^6.9.1"
   },
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server"
+    "start": "node server.mjs",
+    "server": "nodemon server.mjs"
   },
   "name": "backend",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "server.mjs",
   "devDependencies": {},
   "keywords": [],
   "author": "",

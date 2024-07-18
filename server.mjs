@@ -1,6 +1,10 @@
-const express = require('express');
-const connectDB = require('./config/db');
-require('dotenv').config();
+import express from 'express';
+import connectDB from './config/db.mjs';
+import dotenv from 'dotenv';
+import userRoutes from './routes/api/users.mjs';
+import authRoutes from './routes/api/auth.mjs';
+
+dotenv.config();
 
 //Initialize our app variable with Express
 const app = express();
@@ -12,11 +16,11 @@ connectDB();
 app.use(express.json({ extended: false }));
 
 //Single endpoint just to test API. Send data to browser
-// app.get('/', (req, res) => res.send('API Running'))
+app.get('/', (req, res) => res.send('API Running'))
 
 //Define Routes
-app.use('/api/users', require('./routes/api/users'));
-app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/users', userRoutes);
+app.use('/api/auth', authRoutes);
 
 // Enviromental Variables
 const PORT = process.env.PORT || 3000;
